@@ -32,9 +32,7 @@ class CLI
          invalid
 
       end
-      #enter y print out a list of starships
-      #enter exit I want them to exit
-      #invalid message
+
 
       end
 
@@ -61,14 +59,27 @@ class CLI
       def select_breweries
         puts "Please select a brewery."
         selection = user_input
-        breweries = Breweries.find_by_selectiom
-        breweries_details(selection)
-
+        breweries = Breweries.find_by_selection(selection)
+        if breweries != nil
+        brewery_details(breweries)
+      else
+        puts "invalid entry"
+        select_breweries
+      end
       end
 
-      def breweries_details(breweries)
-        puts "#{breweries}"
+      #binding.pry
+
+
+      def brewery_details(brewery)
+        #binding.pry
+        puts "Name: #{brewery.name}"
+        puts "City: #{brewery.city}"
+        puts "Breweries_type: #{brewery.brewery_type}"
+        puts "Enter Y to see more breweries"
         menu
       end
+      #binding.pry
+
 
     end

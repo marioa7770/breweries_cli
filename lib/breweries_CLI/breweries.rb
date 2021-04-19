@@ -18,10 +18,9 @@ class Breweries
       @@all
     end
 
-    def self.find_by_selection(brewery_name)
+    def self.find_by_selection(breweries_name)
       self.all.detect do |breweries|
         breweries.name == breweries_name
       end
-
     end
 end

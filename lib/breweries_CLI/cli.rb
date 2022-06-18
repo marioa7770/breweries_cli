@@ -4,6 +4,8 @@ class CLI
 
   def start
 
+
+
     puts "                       `.----..`
                               `syo/::-::/oo+
                               .ho/++/+/++/+y.
@@ -61,7 +63,11 @@ class CLI
                              ``..---------..``
                                               "
 
+
+
     puts "Hello, Welcome to my CLI about breweries, what is you name?"
+
+
 
     API.get_data
     input = user_input
@@ -69,23 +75,25 @@ class CLI
   end
 
 
+
+
   def user_input
     gets.strip
   end
 
     def greet(name)
-      puts "Hello #{name} would you like to see a list of breweries? enter y to see a list of breweries, enter exit to exit "
+      puts "Hello #{name} would you like to see a list of breweries? enter yes to see a list of breweries, enter exit to exit "
       menu
   end
 
     def menu
         selection = user_input
-      if selection == "y"
+      if selection  == "yes"
         print_breweries
         menu
 
       elsif selection == "exit"
-          goodbye
+          def goodbye
 
 
       else
@@ -94,7 +102,7 @@ class CLI
       end
 
 
-      end
+    end
 
       def goodbye
          puts "Thanks for looking at my CLI!"
@@ -117,7 +125,7 @@ class CLI
 
 
       def select_breweries
-        puts "Please select a brewery you would like more inforamtion about."
+        puts "Please select a brewery you would like more information about."
         selection = user_input
         Breweries.find_by_selection(selection)
         breweries = Breweries.find_by_selection(selection)
@@ -143,7 +151,7 @@ class CLI
         puts "Name: #{brewery.name}"
         puts "City: #{brewery.city}"
         puts "Breweries_type: #{brewery.brewery_type}"
-        puts "Enter Y to see more breweries or exit to exit"
+        puts "Enter yes to see more breweries or exit to exit"
         puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         puts ""
         puts ""
